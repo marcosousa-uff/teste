@@ -18,7 +18,7 @@ int main() {
     GRAPHshow(g);
 
     if (GRAPHreach(g,1,3)){
-        printf("a caminho entre %d e %d",1,3);
+        printf("existe caminho entre %d e %d",1,3);
     }else printf("caminho nao encontrado");
 
 /*
