@@ -9,7 +9,7 @@ static int low[1000];
 static int cnt, pre[1000];
 static vertex parent[1000];
 
-static int visit[1000];// cria um vetor de visitados se a caminho de um vertice ate 4 o numero visit[4] vai conter o valor 1
+static int visit[1000];// cria um vetor de visitados se existe caminho de um vertice ate 4 o numero visit[4] vai conter o valor 1
 
 struct graph {
     int V;
@@ -75,8 +75,9 @@ void GRAPHshow( Graph G) {                          //metodo mostra
             for (a = G->adj[v]; a != NULL; a = a->next) {
                 printf("(%d , %d)", v, a->w);      //printa todas as adjacencias
             }
+            printf("\n");
         }
-        printf("\n");
+        
     }
 }
 
