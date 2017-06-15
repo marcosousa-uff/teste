@@ -135,3 +135,43 @@ static void reachR( Graph G, vertex v){         //visita todos os vertices a par
         if (visit[a->w] == 0)                   //se um vertice não foi visitado visita todos a partir dele
             reachR( G, a->w);
 }
+void UGRAPHbridges( UGraph G,Graph P)
+{
+    vertex v;
+    for (v = 1; v <= G->V; ++v)
+        pre[v] = parent[v] = -1;
+    cnt = 0;
+    for (v = 1; v <= G->V; ++v)
+        if (pre[v] == -1) {
+            parent[v] = v;
+            bridgesR( G, v,P);
+        }
+}
+static void bridgesR( UGraph G, vertex v,Graph P)
+{
+    link a; int min;
+    pre[v] = cnt++;
+
+    min = pre[v];
+    for (a = G->adj[v]; a != NULL; a = a->next) {
+        vertex w = a->w;
+        if (pre[w] == -1) {
+            parent[w] = v;
+            bridgesR( G, w ,P);
+            if (low[w] < min) /*A*/
+                min = low[w];
+        }
+        else {
+            if (pre[w] < min && w != parent[v]) /*B*/
+                min = pre[w];
+        }
+    }
+    low[v]= min;
+        for (v = 1; v <= G->V; ++v)
+            if (low[v] == pre[v] && parent[v] != v) {
+                /* arco parent[v]-v faz parte de ponte */
+                //printf("%d-%d\n", parent[v], v);                  //estava printando mais de uma vez o mesmo grafo
+                GRAPHinsertA(P,parent[v],v);                        //resolvi colocar o resultado em outro grafo
+            }
+}
+
