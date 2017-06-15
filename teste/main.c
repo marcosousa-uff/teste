@@ -19,7 +19,7 @@ int main() {
     GRAPHinsertA(g,5,4);
 
 
-    printf("arestras do grafo:\n");
+    printf("arestas do grafo:\n");
     GRAPHshow(g);
 
     if (GRAPHreach(g,2,1)){
