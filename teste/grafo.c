@@ -5,6 +5,10 @@
 #include <stdio.h>
 #include "grafo.h"
 
+static int low[1000];
+static int cnt, pre[1000];
+static vertex parent[1000];
+
 static int visit[1000];// cria um vetor de visitados se a caminho de um vertice ate 4 o numero visit[4] vai conter o valor 1
 
 struct graph {
