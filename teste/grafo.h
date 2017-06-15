@@ -13,6 +13,10 @@ typedef struct node *link;
 
 typedef struct graph *Graph;
 
+void UGRAPHbridges( UGraph G,Graph P);
+
+static void bridgesR( UGraph G, vertex v,Graph P);
+
 int GRAPHreach( Graph G, vertex s, vertex t);
 
 static void reachR( Graph G, vertex v);
