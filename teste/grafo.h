@@ -8,6 +8,8 @@
 #endif //TESTE_GRAFO_H
 #define vertex int
 
+#define UGraph Graph
+
 
 typedef struct node *link;
 
